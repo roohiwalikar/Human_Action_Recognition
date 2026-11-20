@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartMotion - Real-Time Human Activity Recognition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>SmartMotion</h1>
+      <p>Real-Time Human Activity & Movement Recognition System</p>
+    </div>
+    <div class="status-group">
+      <span id="systemStatus" class="badge idle">Initializing...</span>
+      <span id="fpsBadge" class="badge dark">FPS: 0</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="left-panel card">
+      <div class="video-wrapper">
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn">Start Camera</button>
+        <button id="stopBtn" disabled>Stop Camera</button>
+        <label class="toggle">
+          <input type="checkbox" id="showLandmarks" checked />
+          <span>Show Landmarks</span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="mirrorVideo" checked />
+          <span>Mirror Video</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="right-panel">
+      <div class="card summary-card">
+        <h2>Current Activity</h2>
+        <div id="currentActivity" class="activity">Waiting for camera...</div>
+        <div id="activityConfidence" class="confidence">Confidence: 0%</div>
+        <div id="frameCount" class="meta">Frames Analyzed: 0</div>
+      </div>
+
+      <div class="card">
+        <h2>Detected States</h2>
+        <div id="detectedStates" class="state-list"></div>
+      </div>
+
+      <div class="card">
+        <h2>Movement History</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Activity</th>
+              <th>Confidence</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>System Information</h2>
+        <div class="info-grid">
+          <div><strong>Pose:</strong> <span id="poseStatus">Loading...</span></div>
+          <div><strong>Face:</strong> <span id="faceStatus">Loading...</span></div>
+          <div><strong>Hands:</strong> <span id="handStatus">Loading...</span></div>
+          <div><strong>Camera:</strong> <span id="cameraStatus">Off</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+<footer class="project-footer">
+  <strong>Human Action Recognition Using ML and DL Classifiers</strong>
+  <br>
+  Developed by Roohi, Rakshita, Bhumika & Priyanka
+  <br>
+  <span>Major Project</span>
+</footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
